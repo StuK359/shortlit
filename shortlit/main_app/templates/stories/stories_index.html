@@ -3,6 +3,16 @@
 
 <h1>All Stories</h1>
 
-
+{% for s in stories %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ s.title }}</span>
+      <p>Author: {{ s.author }}</p>
+      <p>Synopsis: {{ s.synopsis }}</p>
+      <p>Genre: {{ s.genre }}</p>
+      <p>Date: {{ s.date }}</p>
+    </div>
+  </div>
+{% endfor %}
 
 {% endblock %}
