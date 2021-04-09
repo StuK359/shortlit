@@ -11,4 +11,4 @@ def home(request):
     return HttpResponse('<h1>BOOOOKS</h1>')
 
 def about(request):
-    return HttpResponse('<h2>ABOUT BOOOOOKS</h2>')
+    return render(request, 'about.html')
