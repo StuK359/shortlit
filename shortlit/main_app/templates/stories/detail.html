@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ story.title }}</h1>
+
+<div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ story.title }}</span>
+            <img src="{{ story.cover }}">
+            <p>Author: {{ story.author }}</p>
+            <p>Synopsis: {{ story.synopsis }}</p>
+            <p>Genre: {{ story.genre }}</p>
+            <p>Date: {{ story.date }}</p>
+            <p>Content: {{ story.content }}</p>
+        </div>
+</div>
+
+
+{% endblock %}
