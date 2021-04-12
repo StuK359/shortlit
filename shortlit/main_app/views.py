@@ -16,3 +16,9 @@ def stories_index(request):
     return render(request, 'stories/stories_index.html', {
             'stories': stories
     })
+
+def stories_detail(request, story_id):
+    story = Story.objects.get(id=story_id)
+    return render(request, 'stories/detail.html', {
+        'story': story
+    })
