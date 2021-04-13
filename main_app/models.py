@@ -25,6 +25,8 @@ class Story(models.Model):
   def get_absolute_url(self):
     return reverse('detail', kwargs={'story_id': self.id})
 
+  def __str__(self):
+    return self.title
 
 class Review(models.Model):
   created = models.DateTimeField(auto_now_add=True)
