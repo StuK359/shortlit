@@ -28,16 +28,21 @@
 </div>
 <table class="striped">
     <thead>
-      <tr><th>Reviews</th></tr>
+      <tr><th>Reviews</th><th>Rating</th><th>Created</th></tr>
     </thead>
     <tbody>
       {% for review in story.review_set.all %}
         <tr>
           <td>{{review.content}}</td>
+          <td>{{review.rating}}</td>
+          <td>{{review.created}}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
-
+<script>
+  const selectEl = document.getElementById('id_rating');
+  M.FormSelect.init(selectEl);
+</script>
 {% endblock %}
