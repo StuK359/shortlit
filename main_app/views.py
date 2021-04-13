@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Story
+from .models import Story, Review
+from .forms import ReviewForm
 
 # Add the following import
 from django.http import HttpResponse
@@ -20,8 +21,10 @@ def stories_index(request):
 
 def stories_detail(request, story_id):
     story = Story.objects.get(id=story_id)
+    review_form = ReviewForm()
     return render(request, 'stories/detail.html', {
-        'story': story
+       'story': story,
+       'review_form': review_form,
     })
 
 class StoryCreate(CreateView):
@@ -37,3 +40,11 @@ class StoryUpdate(UpdateView):
 class StoryDelete(DeleteView):
     model = Story
     success_url = '/stories/'
+
+def add_review(request, story_id):
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+      new_review = form.save(commit = False)
+      new_review.story_id = story_id
+      new_review.save()
+    return redirect('detail', story_id=story_id)

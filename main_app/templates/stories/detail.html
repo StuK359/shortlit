@@ -18,6 +18,26 @@
             <a href="{% url 'stories_delete' story.id %}">Delete</a>
           </div>
 </div>
+<div class="col s6">
+    <!-- new code below -->
+    <form method="post" action="{% url 'add_review' story.id %}">
+      {% csrf_token %}
+      {{ review_form.as_p }}
+      <input type="submit" class="btn" value="Add Review">
+    </form>
+</div>
+<table class="striped">
+    <thead>
+      <tr><th>Reviews</th></tr>
+    </thead>
+    <tbody>
+      {% for review in story.review_set.all %}
+        <tr>
+          <td>{{review.content}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 
 {% endblock %}
