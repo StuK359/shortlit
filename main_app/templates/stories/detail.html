@@ -13,6 +13,9 @@
             <p>Date: {{ story.date }}</p>
             <p>Content: {{ story.content }}</p>
         </div>
+        <div class="card-action">
+            <a href="{% url 'stories_update' story.id %}">Edit</a>
+          </div>
 </div>
 
 
