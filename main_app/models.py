@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse 
 
 # Create your models here.
 class Story(models.Model):
@@ -11,3 +12,6 @@ class Story(models.Model):
   synopsis = models.TextField()
   cover = models.TextField()
 
+
+  def get_absolute_url(self):
+    return reverse('detail', kwargs={'story_id': self.id})
