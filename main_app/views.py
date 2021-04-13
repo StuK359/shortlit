@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Story
 
 # Add the following import
@@ -22,3 +23,8 @@ def stories_detail(request, story_id):
     return render(request, 'stories/detail.html', {
         'story': story
     })
+
+class StoryCreate(CreateView):
+    model = Story
+    fields = '__all__'
+    success_url = '/stories/'
