@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Story
 
 # Add the following import
@@ -32,4 +32,8 @@ class StoryCreate(CreateView):
 class StoryUpdate(UpdateView):
     model = Story
     fields = '__all__'
+    success_url = '/stories/'
+
+class StoryDelete(DeleteView):
+    model = Story
     success_url = '/stories/'
