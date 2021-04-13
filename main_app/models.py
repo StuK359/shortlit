@@ -1,7 +1,23 @@
 from django.db import models
 from django.urls import reverse 
 
-
+GENRE = (
+  ('SF', 'Sci-Fi'),
+  ('FA', 'Fantasy'),
+  ('HO', 'Horror'),
+  ('NF', 'Non-Fiction'),
+  ('MY', 'Mystery'),
+  ('HU', 'Humour'),
+  ('TH', 'Thriller'),
+  ('CH', 'Children\'s'),
+  ('HF', 'Historical Fiction'),
+  ('SP', 'Spiritual'),
+  ('RO', 'Romance'),
+  ('ME', 'Memoir'),
+  ('PO', 'Poetry'),
+  ('WE', 'Western'),
+  ('YA', 'Young Adult'),
+)
 
 RATING = (
   ('1', '1'),
@@ -16,12 +32,15 @@ class Story(models.Model):
   title = models.CharField(max_length=50)
   author = models.CharField(max_length=50)
   user = models.CharField(max_length=50)
-  genre = models.CharField(max_length=50)
+  genre = models.CharField(
+    max_length=2,
+    choices=GENRE,
+    default=GENRE[0][0]
+  )
   date = models.DateField()
   content = models.TextField()
   synopsis = models.TextField()
   cover = models.TextField()
-
 
   def get_absolute_url(self):
     return reverse('detail', kwargs={'story_id': self.id})
