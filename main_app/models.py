@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse 
 
 
+
 RATING = (
   ('1', '1'),
   ('2', '2'),
