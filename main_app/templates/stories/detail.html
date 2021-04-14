@@ -8,7 +8,7 @@
             <img src="{{ story.cover }}">
             <p>Author: {{ story.author }}</p>
             <p>Synopsis: {{ story.synopsis }}</p>
-            <p>Genre: {{ story.genre }}</p>
+            <p>Genre: {{ story.get_genre_display }}</p>
             <p>Date: {{ story.date }}</p>
             <p>Content: {{ story.content }}</p>
         </div>

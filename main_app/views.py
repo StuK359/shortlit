@@ -15,6 +15,8 @@ def about(request):
 
 def stories_index(request):
     stories = Story.objects.all()
+    for story in stories:
+      print(story.genre)
     return render(request, 'stories/stories_index.html', {
             'stories': stories
     })

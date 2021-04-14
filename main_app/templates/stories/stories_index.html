@@ -11,7 +11,7 @@
             <img src="{{ s.cover }}">
             <p>Author: {{ s.author }}</p>
             <p>Synopsis: {{ s.synopsis }}</p>
-            <p>Genre: {{ s.genre }}</p>
+            <p>Genre: {{ s.get_genre_display }}</p>
             <p>Date: {{ s.date }}</p>
         </div>
     
@@ -19,3 +19,7 @@
 {% endfor %}
 
 {% endblock %}
+<script>
+  const selectEl = document.getElementById('id_genre');
+  M.FormSelect.init(selectEl);
+</script>
