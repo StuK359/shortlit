@@ -42,6 +42,12 @@
               <input type="submit" value="X" class="btn red">
             </form>
           </td>
+          <td>
+            <form action="{% url 'update_review' story.id review.id %}" method="POST">
+              {% csrf_token %}
+              <input type="submit" value="Update" class="btn">
+            </form>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
