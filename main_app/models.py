@@ -63,6 +63,8 @@ class Review(models.Model):
   def __str__(self):
     return f"Content: {self.content}, Rating: {self.rating}"
 
+  def get_absolute_url(self):
+    return reverse('detail', kwargs={'story_id': self.story.id})
+
   class Meta:
     ordering = ['-id']
-
