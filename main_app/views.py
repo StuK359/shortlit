@@ -48,3 +48,9 @@ def add_review(request, story_id):
       new_review.story_id = story_id
       new_review.save()
     return redirect('detail', story_id=story_id)
+
+def delete_review(request, story_id, review_id):
+    Review.objects.get(id=review_id).delete()
+    return redirect('detail', story_id=story_id)
+
+

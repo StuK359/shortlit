@@ -28,7 +28,7 @@
 </div>
 <table class="striped">
     <thead>
-      <tr><th>Reviews</th><th>Rating</th><th>Created</th></tr>
+      <tr><th>Reviews</th><th>Rating</th><th>Created</th><th></th></tr>
     </thead>
     <tbody>
       {% for review in story.review_set.all %}
@@ -36,6 +36,12 @@
           <td>{{review.content}}</td>
           <td>{{review.rating}}</td>
           <td>{{review.created}}</td>
+          <td>
+            <form action="{% url 'delete_review' story.id review.id %}" method="POST">
+              {% csrf_token %}
+              <input type="submit" value="X" class="btn red">
+            </form>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
