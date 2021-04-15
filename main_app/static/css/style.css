@@ -1,9 +1,98 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(242, 233, 221);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 
-  img {
-      height: 250px;
-  }
+img {
+  height: 355px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+  background-color: #89181a;
+}
+
+nav {
+  background-color: rgba(253, 251, 251, 0.7);
+}
+
+.btn {
+  margin: 20px 0;
+  float: right;
+  background-color: #89181a;
+}
+
+h1 {
+  text-align: center;
+  color: #89181a;
+}
+
+a {
+  color: #89181a;
+}
+a:hover {
+  color: darkgrey;
+}
+.right {
+    color:#89181a;
+}
+
+nav ul a {
+    color: #89181a;
+    font-weight: 900;
+}
+
+.logo {
+    height: 50px;
+    margin: 5px 0 5px 15px;
+}
+.logo:hover {
+    background-color: transparent;
+}
+
+.container-index {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 40px auto;
+}
+
+.card, .card-content {
+    height: 40vmin;
+    width: 40vmin;
+}
+.card {
+    margin-bottom: 50px;
+
+}
+
+.card-content {
+
+    overflow:auto;
+}
+
+h4 {
+    margin-top: 0px;
+    text-align: left;
+}
+
+@media only screen and (max-width: 1200px ) {
+    .container-index {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card, .card-content {
+        width: 80vmin;
+        height: 80vmin;
+    }
+}
