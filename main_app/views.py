@@ -1,7 +1,10 @@
+import os
+import uuid
+import boto3
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Story, Review
-from .forms import ReviewForm
+from .forms import ReviewForm, StoryForm
 
 # Add the following import
 from django.http import HttpResponse
@@ -29,10 +32,30 @@ def stories_detail(request, story_id):
        'review_form': review_form,
     })
 
-class StoryCreate(CreateView):
-    model = Story
-    fields = '__all__'
-    success_url = '/stories/'
+
+def stories_create(request):
+# photo-file will be the "name" attribute on the <input type="file">
+    if request.method == 'POST':
+        cover_file = request.FILES.get('cover-file', None)
+        form = StoryForm(request.POST)
+        story = form.save(commit=False)
+        if cover_file:
+            s3 = boto3.client('s3')
+            # need a unique "key" for S3 / needs image file extension too
+            key = uuid.uuid4().hex[:6] + cover_file.name[cover_file.name.rfind('.'):]
+            # just in case something goes wrong
+            try:
+                s3.upload_fileobj(cover_file, os.environ['S3_BUCKET'], key)
+                # build the full url string
+                url = f"{os.environ['S3_BASE_URL']}{os.environ['S3_BUCKET']}/{key}"
+                story.cover = url
+            except:
+                print('An error occurred uploading file to S3')
+        story.save()
+        return redirect('detail', story_id = story.id)
+    else: 
+        form = StoryForm()
+        return render(request, 'main_app/story_form.html', {'form': form})
 
 class StoryUpdate(UpdateView):
     model = Story
