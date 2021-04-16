@@ -36,15 +36,15 @@
           <td>{{review.rating}}</td>
           <td>{{review.created}}</td>
           <td>
-            <form action="{% url 'delete_review' story.id review.id %}" method="POST">
+            <form action="{% url 'update_review' story.id review.id %}" method="POST">
               {% csrf_token %}
-              <input type="submit" value="X" class="btn red">
+              <input type="submit" value="edit" class="material-icons btn green">
             </form>
           </td>
           <td>
-            <form action="{% url 'update_review' story.id review.id %}" method="POST">
+            <form action="{% url 'delete_review' story.id review.id %}" method="POST">
               {% csrf_token %}
-              <input type="submit" value="Update" class="btn">
+              <input type="submit" value="delete" class="material-icons btn red">
             </form>
           </td>
         </tr>

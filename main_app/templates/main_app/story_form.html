@@ -12,10 +12,20 @@
     <!-- Django requires the following for security purposes -->
     {% csrf_token %}
     {{form.as_p}}
-    <input type="file" name="cover-file">
+    <label>Cover Image:
+      <br>
+      <input type="file" name="cover-file">
+    </label>
     <input type="submit" value="Publish!" class="btn">
   </form>
   <script>
+    const dateEl = document.getElementById('id_date');
+    M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+    });
     const selectEl = document.getElementById('id_genre');
     M.FormSelect.init(selectEl);
   </script>
