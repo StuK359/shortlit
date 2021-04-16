@@ -1,5 +1,6 @@
 from django.db import models
-from django.urls import reverse 
+from django.urls import reverse
+from datetime import date
 from django.contrib.auth.models import User
 
 GENRE = (
@@ -38,7 +39,7 @@ class Story(models.Model):
     choices=GENRE,
     default=GENRE[0][0]
   )
-  date = models.DateField()
+  date = models.DateField('Publish Date')
   content = models.TextField()
   synopsis = models.TextField()
   cover = models.CharField(max_length=200,default="https://i.imgur.com/2WkT35M.jpg")
