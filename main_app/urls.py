@@ -12,4 +12,5 @@ urlpatterns = [
     path('stories/<int:story_id>/add_review/', views.add_review, name='add_review'),
     path('stories/<int:story_id>/delete_review/<int:review_id>', views.delete_review, name='delete_review'),
     path('stories/<int:story_id>/update_review/<int:pk>', views.ReviewUpdate.as_view(), name='update_review'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]

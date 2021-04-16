@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse 
+from django.contrib.auth.models import User
 
 GENRE = (
   ('SF', 'Sci-Fi'),
@@ -31,7 +32,7 @@ RATING = (
 class Story(models.Model):
   title = models.CharField(max_length=50)
   author = models.CharField(max_length=50)
-  user = models.CharField(max_length=50)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   genre = models.CharField(
     max_length=2,
     choices=GENRE,
