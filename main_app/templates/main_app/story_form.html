@@ -3,13 +3,12 @@
 {% block content %}
 
   {% if object %}
-    <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+    <h1>Edit <span class="teal-text">{{object.title}}</span></h1>
   {% else %}
     <h1>Add Story</h1>
   {% endif %}
   <!-- Leaving the action empty makes the form post to the same url used to display it -->
   <form action="" enctype="multipart/form-data" method="POST">
-    <!-- Django requires the following for security purposes -->
     {% csrf_token %}
     {{form.as_p}}
     <label>Cover Image:
