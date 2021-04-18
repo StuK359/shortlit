@@ -32,10 +32,16 @@ def stories_index(request):
 
 def stories_detail(request, story_id):
     story = Story.objects.get(id=story_id)
+    favs = request.user.favorite_set.all()
+    fav = None
+    for f in favs:
+        if fav.story_id == story_id:
+            fav = f
     review_form = ReviewForm()
     return render(request, 'stories/detail.html', {
         'story': story,
         'review_form': review_form,
+        'fav': fav,
     })
 
 
@@ -149,7 +155,9 @@ def add_favorite(request, story_id):
 
 @login_required
 def remove_favorite(request, story_id):
-    request.user.favorite_set.remove(story_id)
+    story = Story.objects.get(id=story_id)
+    fav = story.favorite_set.get(story_id=story_id)
+    request.user.favorite_set.get(id=fav.id).delete()
     return redirect('detail', story_id=story_id)
 
 @login_required
