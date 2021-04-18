@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>My Favorites</h1>
+<div class="container-index">
+{% if favorites.count %}
+{% for fav in favorites %}
+<div class="card">
+  <a href="/stories/{{ fav.story.id }}">
+        <div class="card-content">
+            <span class="card-title"><h4>{{ fav.story.title }}</h4></span></a>
+            <img src="{{ fav.story.cover }}">
+            <p>Author: {{ fav.story.author }}</p>
+            <p>Synopsis: {{ fav.story.synopsis }}</p>
+            <p>Genre: {{ fav.story.get_genre_display }}</p>
+            <p>Date: {{ fav.story.date }}</p>
+        </div>
+    
+</div>
+
+{% endfor %}
+{% else %}
+<h3>
+  No Favorites Yet
+</h3>
+{% endif %}
+</div>
+{% endblock %}
+<script>
+  const selectEl = document.getElementById('id_genre');
+  M.FormSelect.init(selectEl);
+</script>

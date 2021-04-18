@@ -78,5 +78,6 @@ class Favorite(models.Model):
 
   def __str__(self):
       return f"Story ID: {self.story.id}"
+      
 
       

@@ -136,11 +136,23 @@ def signup(request):
 
 @login_required
 def add_favorite(request, story_id):
-    pass
+    favorites = request.user.favorite_set.all()
+    for fav in favorites:
+        if (story_id == fav.__dict__['story_id']):
+            return redirect('detail', story_id=story_id)
+    else:
+        fav = Favorite()
+        fav.story_id = story_id
+        fav.user = request.user
+        fav.save()
+        return redirect('detail', story_id=story_id)
 
 @login_required
 def remove_favorite(request, story_id):
-    pass
+    request.user.favorite_set.remove(story_id)
+    return redirect('detail', story_id=story_id)
 
-class FavoriteList(ListView, LoginRequiredMixin):
-    model = Favorite
+@login_required
+def favorites_index(request):
+    favorites = request.user.favorite_set.all()
+    return render(request, 'favorites/favorites_index.html', {'favorites' : favorites})
