@@ -24,6 +24,7 @@
           <li><a href="{% url 'stories_index' %}">All Stories</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'stories_create' %}">Publish</a></li>
+            <li><a href="{% url 'favorites_index' %}">My Favorites</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
