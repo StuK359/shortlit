@@ -5,13 +5,14 @@ body {
   background-color: rgb(242, 233, 221);
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-
-img {
-  height: 355px;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+.card-content > img {
+  width: 175px;
+  margin: 20px 0;
 }
 
 footer.page-footer {
@@ -42,57 +43,67 @@ a:hover {
   color: darkgrey;
 }
 .right {
-    color:#89181a;
+  color: #89181a;
 }
 
 nav ul a {
-    color: #89181a;
-    font-weight: 900;
+  color: #89181a;
+  font-weight: 900;
 }
 
-.logo {
-    height: 50px;
-    margin: 5px 0 5px 15px;
+img.logo {
+  width: auto;
+  height: 50px;
+  margin: 5px 0 5px 15px;
 }
 .logo:hover {
-    background-color: transparent;
+  background-color: transparent;
+}
+
+p {
+  font-size: 16.5px;
+  padding: 5px 20px;
+  text-align: left;
 }
 
 .container-index {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  justify-content: center;
+  column-gap: 60px;
+  width: 100%;
+  margin: 30px;
 }
 
-.card, .card-content {
-    height: 40vmin;
-    width: 40vmin;
+.card,
+.card-content {
+  height: 50vmin;
+  width: 50vmin;
 }
 .card {
-    margin-bottom: 50px;
-
+  margin-bottom: 50px;
 }
 
 .card-content {
-
-    overflow:auto;
+  overflow: auto;
+  text-align: center;
 }
 
 h4 {
-    margin-top: 0px;
-    text-align: left;
+  margin-top: 0px;
+  text-align: center;
 }
 
-@media only screen and (max-width: 1200px ) {
-    .container-index {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .card, .card-content {
-        width: 80vmin;
-        height: 80vmin;
-    }
+@media only screen and (max-width: 1200px) {
+  .container-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card,
+  .card-content {
+    width: 80vmin;
+    height: 80vmin;
+  }
 }
