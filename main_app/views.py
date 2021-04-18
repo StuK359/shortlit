@@ -9,7 +9,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Define the home view
 
@@ -24,8 +24,6 @@ def about(request):
 
 def stories_index(request):
     stories = Story.objects.all()
-    for story in stories:
-        print(story.genre)
     return render(request, 'stories/stories_index.html', {
         'stories': stories
     })
@@ -69,29 +67,25 @@ class StoryUpdate(UpdateView, LoginRequiredMixin):
     fields = ['title', 'author', 'genre', 'date', 'content', 'synopsis']
 
     def form_valid(self, form):
-        cover_file = self.request.FILES.get('cover-file', None)
-        form = StoryForm(self.request.POST)
-        story = form.save(commit=False)
-        if cover_file:
-            s3 = boto3.client('s3')
-            key = uuid.uuid4().hex[:6] + \
-                cover_file.name[cover_file.name.rfind('.'):]
-            try:
-                s3.upload_fileobj(cover_file, os.environ['S3_BUCKET'], key)
-                url = f"{os.environ['S3_BASE_URL']}{os.environ['S3_BUCKET']}/{key}"
-                story.cover = url
-            except:
-                print('An error occurred uploading file to S3')
-        story.user = self.request.user
-        story.save()
-        return super().form_valid(form)
+        if self.request.method == 'POST':
+            cover_file = self.request.FILES.get('cover-file', None)
 
+            story = form.save(commit=False)
 
-
-
-# class StoryUpdate(UpdateView, LoginRequiredMixin):
-#     model = Story
-#     fields = ['title', 'author', 'genre', 'date', 'content', 'synopsis']
+            print(story.cover)
+            if cover_file:
+                s3 = boto3.client('s3')
+                key = uuid.uuid4().hex[:6] + \
+                    cover_file.name[cover_file.name.rfind('.'):]
+                try:
+                    s3.upload_fileobj(cover_file, os.environ['S3_BUCKET'], key)
+                    url = f"{os.environ['S3_BASE_URL']}{os.environ['S3_BUCKET']}/{key}"
+                    story.cover = url
+                    print(story.cover)
+                except:
+                    print('An error occurred uploading file to S3')
+            story.save()
+            return HttpResponseRedirect(self.get_success_url())
 
 
 class StoryDelete(DeleteView, LoginRequiredMixin):

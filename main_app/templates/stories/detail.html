@@ -4,56 +4,61 @@
 <h1>{{ story.title }}</h1>
 
 <div class="card">
-        <div class="card-content">
-            <img src="{{ story.cover }}">
-            <p>Author: {{ story.author }}</p>
-            <p>Synopsis: {{ story.synopsis }}</p>
-            <p>Genre: {{ story.get_genre_display }}</p>
-            <p>Date: {{ story.date }}</p>
-            <p>Content: {{ story.content }}</p>
-        </div>
-        <div class="card-action">
-            <a href="{% url 'stories_update' story.id %}">Edit</a>
-            <a href="{% url 'stories_delete' story.id %}">Delete</a>
-          </div>
+    <div class="card-content">
+        <img src="{{ story.cover }}">
+        <p>Author: {{ story.author }}</p>
+        <p>Synopsis: {{ story.synopsis }}</p>
+        <p>Genre: {{ story.get_genre_display }}</p>
+        <p>Date: {{ story.date }}</p>
+        <p>Content: {{ story.content }}</p>
+    </div>
+    <div class="card-action">
+        <a href="{% url 'stories_update' story.id %}">Edit</a>
+        <a href="{% url 'stories_delete' story.id %}">Delete</a>
+    </div>
 </div>
 <div class="col s6">
     <!-- new code below -->
     <form method="post" action="{% url 'add_review' story.id %}">
-      {% csrf_token %}
-      {{ review_form.as_p }}
-      <input type="submit" class="btn" value="Add Review">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <input type="submit" class="btn" value="Add Review">
     </form>
 </div>
 <table class="striped">
     <thead>
-      <tr><th>Reviews</th><th>Rating</th><th>Created</th><th></th></tr>
+        <tr>
+            <th>Reviews</th>
+            <th>Rating</th>
+            <th>Created</th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
-      {% for review in story.review_set.all %}
+        {% for review in story.review_set.all %}
         <tr>
-          <td>{{review.content}}</td>
-          <td>{{review.rating}}</td>
-          <td>{{review.created}}</td>
-          <td>
-            <form action="{% url 'update_review' story.id review.id %}" method="POST">
-              {% csrf_token %}
-              <input type="submit" value="edit" class="material-icons btn green">
-            </form>
-          </td>
-          <td>
-            <form action="{% url 'delete_review' story.id review.id %}" method="POST">
-              {% csrf_token %}
-              <input type="submit" value="delete" class="material-icons btn red">
-            </form>
-          </td>
+            <td>{{review.content}}</td>
+            <td>{{review.rating}}</td>
+            <td>{{review.created}}</td>
+            <td>
+                <form action="{% url 'update_review' story.id review.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="edit" class="material-icons btn green">
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'delete_review' story.id review.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="delete" class="material-icons btn red">
+                </form>
+            </td>
         </tr>
-      {% endfor %}
+        {% endfor %}
     </tbody>
-  </table>
+</table>
 
 <script>
-  const selectEl = document.getElementById('id_rating');
-  M.FormSelect.init(selectEl);
+    const selectEl = document.getElementById('id_rating');
+    M.FormSelect.init(selectEl);
 </script>
 {% endblock %}
