@@ -77,7 +77,7 @@ class Favorite(models.Model):
   story = models.ForeignKey(Story, on_delete=models.CASCADE)
 
   def __str__(self):
-      return f"Story ID: {self.story.id}"
+      return f"ID: {self.id}, Story ID: {self.story.id}"
       
 
       
