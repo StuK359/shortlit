@@ -70,3 +70,13 @@ class Review(models.Model):
 
   class Meta:
     ordering = ['-id']
+
+
+class Favorite(models.Model):
+  user = models.ForeignKey(User, on_delete = models.CASCADE)
+  story = models.ForeignKey(Story, on_delete=models.CASCADE)
+
+  def __str__(self):
+      return f"Story ID: {self.story.id}"
+
+
