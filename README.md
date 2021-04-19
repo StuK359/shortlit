@@ -2,7 +2,7 @@
 ShortLit is a place to share your short fiction, and give/receive feedback on short literary works: stories, poems, haikus… whatever you want!
 
 ## Screenshot:
-![https://i.imgur.com/sAMPuVp.jpg](https://i.imgur.com/sAMPuVp.jpg)
+![https://i.imgur.com/O8f751z.jpg](https://i.imgur.com/O8f751z.jpg)
 
 
 ## Technologies Used
