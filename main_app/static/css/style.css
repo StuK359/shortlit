@@ -4,6 +4,8 @@ body {
   flex-direction: column;
   background-color: rgb(242, 233, 221);
   font-family: Georgia, "Times New Roman", Times, serif;
+  position: relative;
+  padding-bottom: 50px;
 }
 .container {
   display: flex;
@@ -18,7 +20,9 @@ body {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
-  background-color: #89181a;
+  position: absolute;
+  background-color: rgb(242, 233, 221);
+  bottom: 0;
 }
 
 nav {
@@ -107,3 +111,4 @@ h4 {
     height: 80vmin;
   }
 }
+
