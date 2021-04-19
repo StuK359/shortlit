@@ -35,7 +35,7 @@ def stories_detail(request, story_id):
     favs = request.user.favorite_set.all()
     fav = None
     for f in favs:
-        if fav.story_id == story_id:
+        if f.story_id == story_id:
             fav = f
     review_form = ReviewForm()
     return render(request, 'stories/detail.html', {
