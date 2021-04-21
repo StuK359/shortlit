@@ -13,7 +13,8 @@
         </span>
         <img src="{{ s.cover }}">
         <p>Author: {{ s.author }}</p>
-        <p>Synopsis: {{ s.synopsis }}</p>
+        <p><button id="button" onclick="reveal()">></button> Synopsis:</p>
+        <p style="display: none;" id="synopsis">{{ s.synopsis }}</p>
         <p>Genre: {{ s.get_genre_display }}</p>
         <p>Date: {{ s.date }}</p>
       </div>
@@ -22,6 +23,18 @@
   </div>
 
   <script>
+    function reveal() {
+      let button = document.getElementById('button')
+      let synopsis = document.getElementById('synopsis');
+      if (synopsis.style.display === "none") {
+        button.innerText = "V"
+        synopsis.style.display = "block";
+      } else {
+        button.innerText = ">"
+        synopsis.style.display = "none";
+      }
+    }
+
     const selectEl = document.getElementById('id_genre');
     M.FormSelect.init(selectEl);
   </script>
