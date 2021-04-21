@@ -39,6 +39,7 @@ def stories_detail(request, story_id):
       'review_form': review_form,
     })
   else:
+    
     favs = request.user.favorite_set.all()
     fav = None
     for f in favs:
@@ -169,7 +170,7 @@ def remove_favorite(request, story_id):
 def favorites_index(request):
   favorites = request.user.favorite_set.all()
   return render(request, 'favorites/favorites_index.html', {'favorites' : favorites})
-  
+
 @login_required
 def user_index(request):
   stories = request.user.story_set.all()

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>All Stories</h1>
+<h1>{{user}}'s Stories</h1>
 {% if stories.count %}
   <div class="container-index">
     {% for s in stories %}
