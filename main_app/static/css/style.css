@@ -18,10 +18,11 @@ body {
 }
 
 footer.page-footer {
-  padding-top: 0;
-  position: fixed;
-  background-color: rgb(242, 233, 221);
   bottom: 0;
+  width: 100%;
+  position: absolute;
+  background-color: #89181a;
+  height: 7px;
 }
 
 nav {
@@ -44,6 +45,13 @@ h1 {
 }
 h2 {
   color:#89181a;
+  padding-top: 0px;
+}
+
+.sidenav li > a {
+  color: #89181a;
+  font-weight: 900;
+  font-size: 16px;
 }
 
 a {
@@ -89,6 +97,8 @@ p {
 .card-content {
   min-height: 45vmin;
   min-width: 45vmin;
+  max-width: 45vmin;
+  max-height: 45vmin;
 }
 .card {
   margin-bottom: 50px;
@@ -131,5 +141,11 @@ h4 {
   img.logo {
     height: 30px;
     padding-top: 5px;
+  }
+  img.home-logo {
+    height: 225px;
+  }
+  .home-logo-phrase {
+    font-size: 32px;
   }
 }
