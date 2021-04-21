@@ -3,11 +3,12 @@
 {% block content %}
 
   {% if object %}
-    <h1>Edit <span class="teal-text">{{object.title}}</span></h1>
+    <h1>Edit&nbsp;
+      <span class="teal-text">{{object.title}}</span>
+    </h1>
   {% else %}
     <h1>Add Story</h1>
   {% endif %}
-  <!-- Leaving the action empty makes the form post to the same url used to display it -->
   <form action="" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     {{form.as_p}}
@@ -17,6 +18,7 @@
     </label>
     <input type="submit" value="Publish!" class="btn">
   </form>
+  
   <script>
     const dateEl = document.getElementById('id_date');
     M.Datepicker.init(dateEl, {
@@ -28,4 +30,5 @@
     const selectEl = document.getElementById('id_genre');
     M.FormSelect.init(selectEl);
   </script>
+
 {% endblock %}
