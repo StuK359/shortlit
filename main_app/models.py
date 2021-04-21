@@ -59,8 +59,8 @@ class Review(models.Model):
     choices=RATING,
     default=RATING[-1][-1]
   )
-
   story = models.ForeignKey(Story, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return f"Content: {self.content}, Rating: {self.rating}"
