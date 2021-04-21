@@ -36,7 +36,7 @@
       </ul>
     </div>
   </nav>
-  <ul class="sidenav right" id="mobile-links">
+  <ul class="sidenav brown lighten-5" id="mobile-links">
     <li><a href="{% url 'about' %}">About</a></li>
     <li><a href="{% url 'stories_index' %}">All Stories</a></li>
     {% if user.is_authenticated %}
@@ -56,7 +56,7 @@
   <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2021 Shortlit &nbsp;</div>
   </footer>
-  
+ 
   <script>
     $(document).ready(function(){
       $('.sidenav').sidenav();
