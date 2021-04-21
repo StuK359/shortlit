@@ -162,6 +162,7 @@ def add_favorite(request, story_id):
 
 @login_required
 def remove_favorite(request, story_id):
+
   story = Story.objects.get(id=story_id)
   fav = story.favorite_set.get(story_id=story_id)
   request.user.favorite_set.get(id=fav.id).delete()

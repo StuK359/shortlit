@@ -19,6 +19,10 @@
           <p>Date: {{ fav.story.date }}</p>
         </div>
       </div>
+      <form action="{% url 'remove_favorite' fav.story.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Remove From Favorites" class="btn">
+      </form>
     {% endfor %}
   {% else %}
     <h3>No Favorites Yet</h3>
