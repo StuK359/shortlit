@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{user}}'s Stories</h1>
+{% if stories.count %}
+  <div class="container-index">
+    {% for s in stories %}
+      <div class="card">
+        <div class="card-content">
+          <a href="/stories/{{ s.id }}">
+            <span class="card-title">
+              <h4>{{ s.title }}</h4>
+            </span>
+          </a>
+          <img src="{{ s.cover }}">
+          <p>Author: {{ s.author }}</p>
+          <p>Synopsis: {{ s.synopsis }}</p>
+          <p>Genre: {{ s.get_genre_display }}</p>
+          <p>Date: {{ s.date }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <h3>You've not even an ounce of LIT content!</h3>
+  <a href="{% url 'stories_create' %}"><button class="btn">Publish</button></a>
+{% endif %}
+{% endblock %}
+<script>
+  const selectEl = document.getElementById('id_genre');
+  M.FormSelect.init(selectEl);
+</script>

@@ -12,10 +12,12 @@
         <p>Date: {{ story.date }}</p>
         <p>Content: {{ story.content }}</p>
     </div>
-    <div class="card-action">
-        <a href="{% url 'stories_update' story.id %}">Edit</a>
-        <a href="{% url 'stories_delete' story.id %}">Delete</a>
-    </div>
+    {% if story.user.id == user.id %}
+      <div class="card-action">
+          <a href="{% url 'stories_update' story.id %}">Edit</a>
+          <a href="{% url 'stories_delete' story.id %}">Delete</a>
+      </div>
+    {% endif %}
 </div>
 {% if fav %}
     <form action="{% url 'remove_favorite' story.id %}" method="POST">
