@@ -46,7 +46,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for review in story.review_set.all %}
+      {% for review in story.review_set.all %}
         <tr>
             <td>{{review.content}}</td>
             <td>{{review.rating}}</td>
@@ -64,7 +64,7 @@
                 </form>
             </td>
         </tr>
-        {% endfor %}
+      {% endfor %}
     </tbody>
 </table>
 

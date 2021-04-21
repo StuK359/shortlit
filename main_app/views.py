@@ -3,7 +3,7 @@ import uuid
 import boto3
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView # needs to be deleted
 from .models import Story, Review, Favorite
 from .forms import ReviewForm, StoryForm
 from django.contrib.auth import login
@@ -32,17 +32,24 @@ def stories_index(request):
 
 def stories_detail(request, story_id):
     story = Story.objects.get(id=story_id)
-    favs = request.user.favorite_set.all()
-    fav = None
-    for f in favs:
-        if f.story_id == story_id:
-            fav = f
-    review_form = ReviewForm()
-    return render(request, 'stories/detail.html', {
-        'story': story,
-        'review_form': review_form,
-        'fav': fav,
-    })
+    if (request.user.is_anonymous):
+      review_form = ReviewForm()
+      return render(request, 'stories/detail.html', {
+          'story': story,
+          'review_form': review_form,
+      })
+    else:
+      favs = request.user.favorite_set.all()
+      fav = None
+      for f in favs:
+          if f.story_id == story_id:
+              fav = f
+      review_form = ReviewForm()
+      return render(request, 'stories/detail.html', {
+          'story': story,
+          'review_form': review_form,
+          'fav': fav,
+      })
 
 
 @login_required
