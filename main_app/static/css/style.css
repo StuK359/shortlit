@@ -82,7 +82,7 @@ p {
 .card,
 .card-content {
   height: 50vmin;
-  width: 50vmin;
+  width: 40vmin;
 }
 .card {
   margin-bottom: 50px;
@@ -107,8 +107,8 @@ h4 {
   }
   .card,
   .card-content {
-    width: 80vmin;
-    height: 80vmin;
+    width: 35vmin;
+    height: 40vmin;
   }
 }
 
