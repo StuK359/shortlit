@@ -58,7 +58,7 @@ nav ul a {
 img.logo {
   width: auto;
   height: 50px;
-  margin: 5px 0 5px 15px;
+  margin: 5px 0 5px 20px;
 }
 .logo:hover {
   background-color: transparent;
@@ -74,15 +74,15 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   justify-content: center;
-  column-gap: 30px;
+  column-gap: 50px;
   width: 100%;
   margin: 20px;
 }
 
 .card,
 .card-content {
-  height: 50vmin;
-  width: 40vmin;
+  min-height: 45vmin;
+  min-width: 45vmin;
 }
 .card {
   margin-bottom: 50px;
@@ -96,20 +96,7 @@ p {
 h4 {
   margin-top: 0px;
   text-align: center;
-}
-
-@media only screen and (max-width: 1200px) {
-  .container-index {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .card,
-  .card-content {
-    width: 35vmin;
-    height: 40vmin;
-  }
+  text-decoration: underline 1px;
 }
 
 .pop-out {
@@ -121,3 +108,22 @@ h4 {
     -webkit-transform: scale(2, 2);
      transform: scale(2, 2);
  }
+@media only screen and (max-width: 1200px) {
+  .container-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card,
+  .card-content {
+    min-width: 70vmin;
+    min-height: 70vmin;
+    max-width: 70vmin;
+    max-height: 70vmin
+  }
+  img.logo {
+   padding-top: 5px;
+    height: 40px;
+  }
+}
