@@ -16,4 +16,5 @@ urlpatterns = [
     path('stories/<int:story_id>/remove_favorite/', views.remove_favorite, name='remove_favorite'),
     path('favorites/', views.favorites_index, name="favorites_index"),
     path('accounts/signup/', views.signup, name='signup'),
+    path('user/', views.user_index, name='user_index'),
 ]
