@@ -112,6 +112,7 @@ def add_review(request, story_id):
   if form.is_valid():
     new_review = form.save(commit=False)
     new_review.story_id = story_id
+    new_review.user_id = request.user.id
     new_review.save()
   return redirect('detail', story_id=story_id)
 
