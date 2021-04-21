@@ -112,3 +112,12 @@ h4 {
   }
 }
 
+.pop-out {
+  transition: transform .7s;
+}
+
+.pop-out:hover {
+   -ms-transform: scale(2, 2);
+    -webkit-transform: scale(2, 2);
+     transform: scale(2, 2);
+ }
