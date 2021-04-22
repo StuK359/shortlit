@@ -105,6 +105,10 @@ p {
   filter: drop-shadow(0px 2px 3px rgba(100, 100, 100, 0.3));
 }
 
+.favorite-form {
+  display: inline;
+}
+
 .card,
 .card-content {
   min-width: 45vh;
