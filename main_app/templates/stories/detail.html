@@ -17,8 +17,10 @@
     {% if story.user.id == user.id %}
       <a href="{% url 'stories_update' story.id %}">Edit</a>
       <a href="{% url 'stories_delete' story.id %}">Delete</a>
+      <a class="right" href="{% url 'user_index' %}">Other Works</a>
+    {% else %}
+      <a class="right" href="{% url 'author_index' story.id %}">Other Works</a>
     {% endif %}
-    <a class="right" href="{% url 'author_index' story.id %}">Other Works</a>
   </div>
 </div>
 {% if fav %}
