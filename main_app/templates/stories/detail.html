@@ -42,11 +42,52 @@
       <button type="submit"><i class="material-icons">textsms</i></button>
     </form>
   </div>
-  <br>
-  <br>
-  {% if story.review_set.count %}
-    <table style="max-width: 75vw;">
-      <thead>
+  <div class="card-action">
+    {% if story.user.id == user.id %}
+      <a href="{% url 'stories_update' story.id %}"><i class="material-icons small">edit</i></a>
+      <a href="{% url 'stories_delete' story.id %}"><i class="material-icons small">delete</i></a>
+      <a class="right" href="{% url 'user_index' %}"><i class="material-icons small">more_horiz</i></a>
+    {% else %}
+      <a class="right" href="{% url 'author_index' story.id %}"><i class="material-icons">more_horiz</i></a>
+    {% endif %}
+  
+{% if fav %}
+  <form action="{% url 'remove_favorite' story.id %}" method="POST">
+    {% csrf_token %}
+    <button class="remove-fav" type="submit"><i class="material-icons small">remove_circle</i></button>
+  </form>
+{% else %}
+  <form action="{% url 'add_favorite' story.id %}" method="POST">
+    {% csrf_token %}
+    <button class="favorite-add-remove" type="submit"><i class="material-icons small">favorite</i></button>
+  </form>
+{% endif %}
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="card-panel brown lighten-5">
+  <form class="reviews" method="post" action="{% url 'add_review' story.id %}">
+    {% csrf_token %}
+    {{ review_form.as_p }}
+    <button class="right" type="submit"><i class="material-icons">rate_review</i></button>
+  </form>
+</div>
+<br>
+<br>
+{% if story.review_set.count %}
+  <table>
+    <thead>
+      <tr>
+        <th>Reviews</th>
+        <th>Rating</th>
+        <th>Created</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for review in story.review_set.all %}
         <tr>
           <th>Reviews</th>
           <th>Rating</th>

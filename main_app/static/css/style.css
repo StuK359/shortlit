@@ -11,10 +11,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+main {
+  margin: 0 20vw;
 }
 .card-content > img {
   max-width: 35vh;
-  min-width: 35vh;
+  min-width: 30vh;
   margin: 20px 0;
 }
 
@@ -33,7 +37,6 @@ nav {
   z-index: 1;
 }
 
-
 .btn {
   margin: 20px 0;
   float: right;
@@ -45,8 +48,8 @@ h1 {
   color: #89181a;
   padding-top: 50px;
 }
-h2 {
-  color:#89181a;
+h2, h3 {
+  color: #89181a;
   padding-top: 0px;
 }
 
@@ -56,9 +59,8 @@ h2 {
   font-size: 16px;
 }
 
-
-
-a, i.material-icons {
+a,
+i.material-icons {
   color: #89181a;
 }
 
@@ -94,18 +96,21 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   justify-content: center;
-  column-gap: 50px;
-  width: 100%;
+  column-gap: 30px;
+  width: 110%;
   margin: 20px;
+}
+.card-action {
+  filter: drop-shadow(0px 2px 3px rgba(100, 100, 100, 0.3));
 }
 
 .card,
 .card-content {
-  min-height: 50vmin;
-  min-width: 50vmin;
-  max-width: 50vmin;
-  max-height: 50vmin;
-  background-color:(252, 250, 248);
+  min-width: 45vh;
+  max-height: 45vh;
+  min-width: 45vh;
+  max-width: 45vh;
+  background-color: (252, 250, 248);
 }
 .card {
   margin-bottom: 50px;
@@ -131,40 +136,48 @@ h4 {
 }
 
 .pop-out {
-  transition: transform .7s;
+  transition: transform 0.7s;
 }
 
 .pop-out:hover {
   -ms-transform: scale(2, 2);
   -webkit-transform: scale(2, 2);
   transform: scale(2, 2);
- }
+}
 
- button {
-   border: none;
-   background-color: transparent;
- }
- button:hover {
-   background-color:lightgrey;
- }
- form {
-   text-align: center;
- }
- .reviews {
-   min-width: 70vmin;
-   padding: 5px;
-   
- }
- #id_content, label, #id_rating > option {
-   color:#89181a;
- }
- .select-wrapper input.select-dropdown:focus {
+button {
+  border: none;
+  background-color: transparent;
+}
+button:hover {
+  background-color: lightgrey;
+}
+form {
+  text-align: center;
+}
+.reviews {
+  min-width: 70vmin;
+  padding: 5px;
+}
+#id_content,
+label,
+#id_rating > option {
+  color: #89181a;
+}
+.select-wrapper input.select-dropdown:focus {
   border-bottom: 1px solid black;
- }
+}
+table {
+  max-width: 75vw;
+}
+td {
+  max-width: 20vw;
+}
+.reviews > button > i {
+  font-size: 3.25rem;
+}
 
-
-
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1100px) {
   .container-index {
     display: flex;
     flex-direction: column;
@@ -173,10 +186,10 @@ h4 {
   }
   .card,
   .card-content {
-    min-width: 70vmin;
-    min-height: 70vmin;
-    max-width: 70vmin;
-    max-height: 70vmin
+    min-width: 50vh;
+    min-height: 50vh;
+    max-width: 50vh;
+    max-height: 50vh;
   }
   img.logo {
     height: 30px;
@@ -189,7 +202,8 @@ h4 {
     font-size: 32px;
   }
   .card-content > img {
-    max-width: 50px;
-    max-height: 80px;
+    max-width: 30vh;
+    min-width: 20vh;
+    width: 35vh;
   }
 }
