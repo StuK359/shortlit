@@ -18,7 +18,7 @@ main {
 }
 .card-content > img {
   max-width: 35vh;
-  min-width: 30vh;
+  min-width: 28vh;
   margin: 20px 0;
 }
 
@@ -186,8 +186,8 @@ td {
   }
   .card,
   .card-content {
-    min-width: 50vh;
-    min-height: 50vh;
+    min-width: 43vh;
+    min-height: 43vh;
     max-width: 50vh;
     max-height: 50vh;
   }
@@ -202,7 +202,7 @@ td {
     font-size: 32px;
   }
   .card-content > img {
-    max-width: 30vh;
+    max-width: 25vh;
     min-width: 20vh;
     width: 35vh;
   }
