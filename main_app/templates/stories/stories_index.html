@@ -4,7 +4,7 @@
   <h1>All Stories</h1>
   <div id="the-test" class="container-index">
     {% for s in stories %}
-    <div class="card">
+    <div class="card brown lighten-5">
       <div class="card-content">
         <span class="card-title">
           <a href="/stories/{{ s.id }}">
@@ -13,10 +13,10 @@
         </span>
         <img src="{{ s.cover }}">
         <div class="book-info">
-          <h4>Author: {{ s.author }}</h4>
-          <h4>Genre: {{ s.get_genre_display }}</h4>
-          <h4>Publish Date: {{ s.date }}</h4>
-          <h4>Synopsis: <button id="button{{s.id}}">></button></h4>
+          <p>Author: {{ s.author }}</p>
+          <p>Genre: {{ s.get_genre_display }}</p>
+          <p>Publish Date: {{ s.date }}</p>
+          <p>Synopsis: <button id="button{{s.id}}">+</button></p>
           <p id="synopsis{{s.id}}">{{ s.synopsis }}</p>
         </div>  
       </div>
@@ -33,10 +33,10 @@
       let button = document.getElementById(`${name}`);
       let synopsis = document.getElementById(`synopsis${id}`);
       if (synopsis.style.display === "none") {
-        button.innerText = "V";
+        button.innerText = "-";
         synopsis.style.display = "block";
       } else {
-        button.innerText = ">";
+        button.innerText = "+";
         synopsis.style.display = "none";
       }
     }
