@@ -12,11 +12,11 @@
   <form action="" enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <label>Cover Image:
+    <label class="left">Cover Image:</label>
       <br>
-      <input type="file" name="cover-file">
-    </label>
-    <button type="submit"><i class="material-icons">publish</i></button>
+      <input class="left" type="file" name="cover-file">
+    
+    <button class="right" type="submit"><i class="material-icons">publish</i></button>
   </form>
   
   <script>

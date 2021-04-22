@@ -48,7 +48,8 @@ h1 {
   color: #89181a;
   padding-top: 50px;
 }
-h2, h3 {
+h2,
+h3 {
   color: #89181a;
   padding-top: 0px;
 }
@@ -176,7 +177,9 @@ td {
 .reviews > button > i {
   font-size: 3.25rem;
 }
-
+.left {
+  margin: 0 20px;
+}
 @media only screen and (max-width: 1100px) {
   .container-index {
     display: flex;
