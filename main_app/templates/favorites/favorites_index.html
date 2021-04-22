@@ -5,7 +5,7 @@
   <div class="container-index">
   {% if favorites.count %}
     {% for fav in favorites %}
-      <div class="card">
+      <div class="card brown lighten-5">
         <div class="card-content">
           <span class="card-title">
             <a href="/stories/{{ fav.story.id }}">
@@ -18,11 +18,13 @@
           <p>Genre: {{ fav.story.get_genre_display }}</p>
           <p>Date: {{ fav.story.date }}</p>
         </div>
+        <div class="card-action">
+          <form action="{% url 'remove_favorite' fav.story.id %}" method="POST">
+            {% csrf_token %}
+            <button class="favorite-add-remove" type="submit"><i class="material-icons">remove_circle</i></button>
+          </form>
+        </div>
       </div>
-      <form action="{% url 'remove_favorite' fav.story.id %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Remove From Favorites" class="btn">
-      </form>
     {% endfor %}
   {% else %}
     <h3>No Favorites Yet</h3>

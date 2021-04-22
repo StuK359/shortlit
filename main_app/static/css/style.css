@@ -13,8 +13,8 @@ body {
   align-items: center;
 }
 .card-content > img {
-  max-width: 50vw;
-  max-height: 40vw;
+  max-width: 35vh;
+  min-width: 35vh;
   margin: 20px 0;
 }
 
@@ -58,7 +58,7 @@ h2 {
 
 
 
-a {
+a, i.material-icons {
   color: #89181a;
 }
 
@@ -101,21 +101,15 @@ p {
 
 .card,
 .card-content {
-  min-height: 45vmin;
-  min-width: 45vmin;
-  max-width: 45vmin;
-  max-height: 45vmin;
+  min-height: 50vmin;
+  min-width: 50vmin;
+  max-width: 50vmin;
+  max-height: 50vmin;
+  background-color:(252, 250, 248);
 }
 .card {
   margin-bottom: 50px;
 }
-.book-info {
-   text-align: left;
-   padding: auto 15vmin;
-   margin: auto 8vmin;
-   width: 80%;
-}
-
 
 .card-content {
   overflow: auto;
@@ -145,6 +139,31 @@ h4 {
   -webkit-transform: scale(2, 2);
   transform: scale(2, 2);
  }
+
+ button {
+   border: none;
+   background-color: transparent;
+ }
+ button:hover {
+   background-color:lightgrey;
+ }
+ form {
+   text-align: center;
+ }
+ .reviews {
+   min-width: 70vmin;
+   padding: 5px;
+   
+ }
+ #id_content, label, #id_rating > option {
+   color:#89181a;
+ }
+ .select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid black;
+ }
+
+
+
 @media only screen and (max-width: 1200px) {
   .container-index {
     display: flex;
@@ -168,5 +187,9 @@ h4 {
   }
   .home-logo-phrase {
     font-size: 32px;
+  }
+  .card-content > img {
+    max-width: 50px;
+    max-height: 80px;
   }
 }
