@@ -3,7 +3,7 @@
 
 <h1>{{ story.title }}</h1>
 
-<div class="card">
+<div class="card brown lighten-5">
   <div class="card-content">
     <img class="pop-out" src="{{ story.cover }}">
     <p>Author: {{ story.author }}</p>
@@ -15,34 +15,40 @@
   </div>
   <div class="card-action">
     {% if story.user.id == user.id %}
-      <a href="{% url 'stories_update' story.id %}">Edit</a>
-      <a href="{% url 'stories_delete' story.id %}">Delete</a>
-      <a class="right" href="{% url 'user_index' %}">Other Works</a>
+      <a href="{% url 'stories_update' story.id %}"><i class="material-icons">edit</i></a>
+      <a href="{% url 'stories_delete' story.id %}"><i class="material-icons">delete</i></a>
+      <a class="right" href="{% url 'user_index' %}"><i class="material-icons">more_horiz</i></a>
     {% else %}
-      <a class="right" href="{% url 'author_index' story.id %}">Other Works</a>
+      <a class="right" href="{% url 'author_index' story.id %}"><i class="material-icons">more_horiz</i></a>
     {% endif %}
-  </div>
-</div>
+  
 {% if fav %}
   <form action="{% url 'remove_favorite' story.id %}" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Remove From Favorites" class="btn">
+    <button class="remove-fav" type="submit"><i class="material-icons">remove_circle</i></button>
   </form>
 {% else %}
   <form action="{% url 'add_favorite' story.id %}" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Add to Favorites" class="btn">
+    <button class="favorite-add-remove" type="submit"><i class="material-icons">favorite</i></button>
   </form>
 {% endif %}
-<div class="col s6">
-  <form method="post" action="{% url 'add_review' story.id %}">
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="card-panel brown lighten-5">
+  <form class="reviews" method="post" action="{% url 'add_review' story.id %}">
     {% csrf_token %}
     {{ review_form.as_p }}
-    <input type="submit" class="btn" value="Add Review">
+    <button type="submit"><i class="material-icons">textsms</i></button>
   </form>
 </div>
+<br>
+<br>
 {% if story.review_set.count %}
-  <table class="striped">
+  <table>
     <thead>
       <tr>
         <th>Reviews</th>
@@ -61,11 +67,11 @@
             {% if review.user_id == user.id %}
               <form action="{% url 'update_review' story.id review.id %}" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="edit" class="material-icons btn green left">
+                <button type="submit"><i class="material-icons">edit</i></button>
               </form>
               <form action="{% url 'delete_review' story.id review.id %}" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="delete" class="material-icons btn red">
+                <button type="submit"><i class="material-icons">delete</i></button>
               </form>
             {% endif %}
           </td>
@@ -74,7 +80,7 @@
     </tbody>
   </table>
 {% else %}
-  <h3>There's nothing heeeeere dude!</h3>  
+  <h4>No Reviews Yet</h4>  
 {% endif %}  
 
 <script>
