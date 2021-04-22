@@ -104,6 +104,12 @@ p {
 .card {
   margin-bottom: 50px;
 }
+.book-info {
+   text-align: center;
+   padding: auto 15vmin;
+   margin: auto 8vmin;
+}
+
 
 .card-content {
   overflow: auto;

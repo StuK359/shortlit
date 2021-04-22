@@ -12,11 +12,13 @@
           </a>
         </span>
         <img src="{{ s.cover }}">
-        <p>Author: {{ s.author }}</p>
-        <p><button id="button{{s.id}}">></button> Synopsis:</p>
-        <p style="display: none;" id="synopsis{{s.id}}">{{ s.synopsis }}</p>
-        <p>Genre: {{ s.get_genre_display }}</p>
-        <p>Date: {{ s.date }}</p>
+        <div class="book-info" >
+          <p>Author: {{ s.author }}</p>
+          <p><button id="button{{s.id}}">></button> Synopsis:</p>
+          <p style="display: none;" id="synopsis{{s.id}}">{{ s.synopsis }}</p>
+          <p>Genre: {{ s.get_genre_display }}</p>
+          <p>Date: {{ s.date }}</p>
+        </div>  
       </div>
     </div>
     {% endfor %}
