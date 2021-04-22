@@ -42,7 +42,7 @@ class Story(models.Model):
   date = models.DateField('Publish Date')
   content = models.TextField()
   synopsis = models.TextField()
-  cover = models.CharField(max_length=200,default="https://i.imgur.com/2WkT35M.jpg")
+  cover = models.CharField(max_length=200,default="https://i.imgur.com/oDxz1yY.png")
 
   def get_absolute_url(self):
     return reverse('detail', kwargs={'story_id': self.id})
