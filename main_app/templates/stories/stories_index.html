@@ -12,12 +12,12 @@
           </a>
         </span>
         <img src="{{ s.cover }}">
-        <div class="book-info" >
-          <p>Author: {{ s.author }}</p>
-          <p><button id="button{{s.id}}">></button> Synopsis:</p>
-          <p style="display: none;" id="synopsis{{s.id}}">{{ s.synopsis }}</p>
-          <p>Genre: {{ s.get_genre_display }}</p>
-          <p>Date: {{ s.date }}</p>
+        <div class="book-info">
+          <h4>Author: {{ s.author }}</h4>
+          <h4>Genre: {{ s.get_genre_display }}</h4>
+          <h4>Publish Date: {{ s.date }}</h4>
+          <h4>Synopsis: <button id="button{{s.id}}">></button></h4>
+          <p id="synopsis{{s.id}}">{{ s.synopsis }}</p>
         </div>  
       </div>
     </div>
@@ -27,13 +27,11 @@
   <script>
     let divEl = document.getElementById('the-test');
     divEl.addEventListener('click', reveal);
-
     function reveal(evt) {
       let name = evt.target.id;
       let id = name.match(/\d+/);
       let button = document.getElementById(`${name}`);
       let synopsis = document.getElementById(`synopsis${id}`);
-      // console.log(synopsis);
       if (synopsis.style.display === "none") {
         button.innerText = "V";
         synopsis.style.display = "block";
@@ -42,7 +40,6 @@
         synopsis.style.display = "none";
       }
     }
-
     const selectEl = document.getElementById('id_genre');
     M.FormSelect.init(selectEl);
   </script>

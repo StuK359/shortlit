@@ -13,7 +13,8 @@ body {
   align-items: center;
 }
 .card-content > img {
-  width: 175px;
+  max-width: 50vw;
+  max-height: 40vw;
   margin: 20px 0;
 }
 
@@ -55,12 +56,16 @@ h2 {
   font-size: 16px;
 }
 
+
+
 a {
   color: #89181a;
 }
+
 a:hover {
   color: darkgrey;
 }
+
 .right {
   color: rgb(242, 233, 221);
 }
@@ -105,9 +110,10 @@ p {
   margin-bottom: 50px;
 }
 .book-info {
-   text-align: center;
+   text-align: left;
    padding: auto 15vmin;
    margin: auto 8vmin;
+   width: 80%;
 }
 
 
@@ -118,8 +124,16 @@ p {
 
 h4 {
   margin-top: 0px;
-  text-align: center;
-  text-decoration: underline 1px;
+  font-size: 5vmin;
+}
+
+.book-info > h4 > button {
+  border: none;
+  background: none;
+}
+
+.book-info p:nth-child(5) {
+  display: none;
 }
 
 .pop-out {
