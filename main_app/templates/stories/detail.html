@@ -11,13 +11,15 @@
     <p>Genre: {{ story.get_genre_display }}</p>
     <p>Date: {{ story.date }}</p>
     <p>Content: {{ story.content }}</p>
+    
   </div>
-  {% if story.user.id == user.id %}
-    <div class="card-action">
+  <div class="card-action">
+    {% if story.user.id == user.id %}
       <a href="{% url 'stories_update' story.id %}">Edit</a>
       <a href="{% url 'stories_delete' story.id %}">Delete</a>
-    </div>
-  {% endif %}
+    {% endif %}
+    <a class="right" href="{% url 'author_index' story.id %}">Other Works</a>
+  </div>
 </div>
 {% if fav %}
   <form action="{% url 'remove_favorite' story.id %}" method="POST">

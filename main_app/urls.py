@@ -17,4 +17,5 @@ urlpatterns = [
     path('favorites/', views.favorites_index, name="favorites_index"),
     path('accounts/signup/', views.signup, name='signup'),
     path('user/', views.user_index, name='user_index'),
+    path('author/<int:story_id>', views.author_index, name='author_index'),
 ]
