@@ -114,9 +114,15 @@ p {
   min-width: 45vh;
   max-height: 45vh;
   min-width: 45vh;
-  max-width: 45vh;
+  max-width: 70vh;
   background-color: (252, 250, 248);
 }
+
+pre {
+  text-align: left;
+  white-space: pre-wrap;
+}
+
 .card {
   margin-bottom: 50px;
 }
@@ -184,7 +190,7 @@ td {
 .left {
   margin: 0 20px;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 900px) {
   .container-index {
     display: flex;
     flex-direction: column;
