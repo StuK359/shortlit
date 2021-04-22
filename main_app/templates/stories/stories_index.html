@@ -28,15 +28,15 @@
 
     function reveal(evt) {
       let name = evt.target.id;
-      let id = name.slice(name.length-2, name.length);
-      let button = document.getElementById(`${name}`)
+      let id = name.match(/\d+/);
+      let button = document.getElementById(`${name}`);
       let synopsis = document.getElementById(`synopsis${id}`);
-      console.log(synopsis)
+      // console.log(synopsis);
       if (synopsis.style.display === "none") {
-        button.innerText = "V"
+        button.innerText = "V";
         synopsis.style.display = "block";
       } else {
-        button.innerText = ">"
+        button.innerText = ">";
         synopsis.style.display = "none";
       }
     }
