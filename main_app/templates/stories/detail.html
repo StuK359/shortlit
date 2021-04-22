@@ -9,7 +9,7 @@
       <p>Synopsis: {{ story.synopsis }}</p>
       <p>Genre: {{ story.get_genre_display }}</p>
       <p>Date: {{ story.date }}</p>
-      <pre style="text-align: left;">Content: {{ story.content }}</pre>
+      <pre>Content: {{ story.content }}</pre>
     </div>
     <div class="card-action">
       {% if story.user.id == user.id %}
