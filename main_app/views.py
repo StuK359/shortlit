@@ -4,7 +4,7 @@ import boto3
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView # needs to be deleted
-from .models import Story, Review, Favorite
+from .models import Story, Review, Favorite, User
 from .forms import ReviewForm, StoryForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -178,4 +178,13 @@ def user_index(request):
   stories = request.user.story_set.all()
   return render(request, 'user/user_index.html', {
       'stories': stories
+  })
+
+def author_index(request, story_id):
+  author_id = Story.objects.get(id=story_id).user_id
+  author = Story.objects.get(id=story_id).user
+  stories = Story.objects.filter(user_id=author_id)
+  return render(request, 'user/author_index.html', {
+      'stories': stories,
+      'author': author,
   })
