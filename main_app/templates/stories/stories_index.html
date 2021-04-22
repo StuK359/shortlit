@@ -35,9 +35,12 @@
       if (synopsis.style.display === "none") {
         button.innerText = "-";
         synopsis.style.display = "block";
-      } else {
+      } else if (synopsis.style.display === "block") {
         button.innerText = "+";
         synopsis.style.display = "none";
+      } else {
+        button.innerText = "-";
+        synopsis.style.display = "block";
       }
     }
     const selectEl = document.getElementById('id_genre');
