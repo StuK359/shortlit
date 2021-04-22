@@ -18,11 +18,11 @@ body {
 }
 
 footer.page-footer {
+  padding-top: 0;
   bottom: 0;
   width: 100%;
   position: absolute;
   background-color: #89181a;
-  height: 7px;
 }
 
 nav {
@@ -31,6 +31,7 @@ nav {
   top: 0;
   z-index: 1;
 }
+
 
 .btn {
   margin: 20px 0;
@@ -61,7 +62,7 @@ a:hover {
   color: darkgrey;
 }
 .right {
-  color: #89181a;
+  color: rgb(242, 233, 221);
 }
 
 nav ul a {
@@ -120,9 +121,9 @@ h4 {
 }
 
 .pop-out:hover {
-   -ms-transform: scale(2, 2);
-    -webkit-transform: scale(2, 2);
-     transform: scale(2, 2);
+  -ms-transform: scale(2, 2);
+  -webkit-transform: scale(2, 2);
+  transform: scale(2, 2);
  }
 @media only screen and (max-width: 1200px) {
   .container-index {
