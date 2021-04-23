@@ -15,7 +15,7 @@ ShortLit is a place to share your short fiction, and give/receive feedback on sh
 7. Amazon AWS S3  
 
 ## Getting Started
- [Go Here](https://git.generalassemb.ly/SEI-CC/SEIR-10-26-20/blob/master/work/w08b/d2/01-02-uploading-images-django/uploading-images-django.md) to peruse a plethora of short fiction from a wide range of aspiring authors. 
+ [Go Here](https://short-lit.herokuapp.com/) to peruse a plethora of short fiction from a wide range of aspiring authors. 
 
 ## Next Steps
 Planned future enhancements include:
