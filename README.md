@@ -15,7 +15,8 @@ ShortLit is a place to share your short fiction, and give/receive feedback on sh
 7. Amazon AWS S3  
 
 ## Getting Started
- [Go Here](https://short-lit.herokuapp.com/) to peruse a plethora of short fiction from a wide range of aspiring authors. 
+ [Go Here](https://short-lit.herokuapp.com/) to peruse a plethora of short fiction from a wide range of aspiring authors.
+ [Go Here](https://trello.com/b/r4ptqNpw/shortlit) to find our most illustrious Trello board of magnificent proportions.
 
 ## Next Steps
 Planned future enhancements include:
