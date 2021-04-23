@@ -19,7 +19,7 @@
           <p>Date: {{ fav.story.date }}</p>
         </div>
         <div class="card-action">
-          <form action="{% url 'remove_favorite' fav.story.id %}" method="POST">
+          <form action="{% url 'add_favorite' fav.story.id %}" method="POST">
             {% csrf_token %}
             <button class="favorite-add-remove" type="submit"><i class="material-icons">remove_circle</i></button>
           </form>
