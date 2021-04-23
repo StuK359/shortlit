@@ -114,9 +114,9 @@ p {
 
 .card,
 .card-content {
-  min-width: 45vh;
-  max-height: 45vh;
-  min-width: 45vh;
+  min-width: 40vh;
+  max-height: 40vh;
+  min-height: 45vh;
   max-width: 70vh;
   background-color: (252, 250, 248);
 }
@@ -177,6 +177,12 @@ form {
 label,
 #id_rating > option {
   color: #89181a;
+}
+textarea#id_content {
+  height: 10rem;
+}
+textarea#id_synopsis{
+  height: 5rem;
 }
 .select-wrapper input.select-dropdown:focus {
   border-bottom: 1px solid black;
