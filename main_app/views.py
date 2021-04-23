@@ -1,6 +1,7 @@
 import os
 import uuid
 import boto3
+import requests
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView # needs to be deleted
@@ -152,21 +153,16 @@ def add_favorite(request, story_id):
   favorites = request.user.favorite_set.all()
   for fav in favorites:
     if (story_id == fav.__dict__['story_id']):
+      fav.delete()
       return redirect('detail', story_id=story_id)
   else:
     fav = Favorite()
     fav.story_id = story_id
     fav.user = request.user
     fav.save()
-    return redirect('detail', story_id=story_id)
+    return redirect('favorites_index')
 
-@login_required
-def remove_favorite(request, story_id):
 
-  story = Story.objects.get(id=story_id)
-  fav = story.favorite_set.get(story_id=story_id)
-  request.user.favorite_set.get(id=fav.id).delete()
-  return redirect('detail', story_id=story_id)
 
 @login_required
 def favorites_index(request):
