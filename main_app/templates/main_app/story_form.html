@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
   {% if object %}
@@ -13,9 +12,8 @@
     {% csrf_token %}
     {{form.as_p}}
     <label class="left">Cover Image:</label>
-      <br>
-      <input class="left" type="file" name="cover-file">
-    
+    <br>
+    <input class="left" type="file" name="cover-file">
     <button class="right" type="submit"><i class="material-icons">publish</i></button>
   </form>
   

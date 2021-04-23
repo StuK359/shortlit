@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,24 +15,22 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-
 <body>
   <nav class="nav-wrapper">
     <div class="nav-container">
       <a href="/" class="left brand-logo"><img class="logo" src="https://i.imgur.com/C0yyNUr.png"></a>
-      <a href="#" class="right sidenav-trigger" data-target="mobile-links">
-        <i class="right material-icons">menu</i></a>
+      <a href="#" class="right sidenav-trigger" data-target="mobile-links"><i class="right material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'stories_index' %}">All Stories</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'stories_create' %}">Publish</a></li>
-        <li><a href="{% url 'user_index' %}">My Stories</a></li>
-        <li><a href="{% url 'favorites_index' %}">My Favorites</a></li>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
+          <li><a href="{% url 'stories_create' %}">Publish</a></li>
+          <li><a href="{% url 'user_index' %}">My Stories</a></li>
+          <li><a href="{% url 'favorites_index' %}">My Favorites</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
         {% else %}
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-        <li><a href="{% url 'login' %}">Log In</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li>
         {% endif %}
       </ul>
     </div>
@@ -42,13 +39,13 @@
     <li><a href="{% url 'about' %}">About</a></li>
     <li><a href="{% url 'stories_index' %}">All Stories</a></li>
     {% if user.is_authenticated %}
-    <li><a href="{% url 'stories_create' %}">Publish</a></li>
-    <li><a href="{% url 'user_index' %}">My Stories</a></li>
-    <li><a href="{% url 'favorites_index' %}">My Favorites</a></li>
-    <li><a href="{% url 'logout' %}">Log Out</a></li>
+      <li><a href="{% url 'stories_create' %}">Publish</a></li>
+      <li><a href="{% url 'user_index' %}">My Stories</a></li>
+      <li><a href="{% url 'favorites_index' %}">My Favorites</a></li>
+      <li><a href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
-    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-    <li><a href="{% url 'login' %}">Log In</a></li>
+      <li><a href="{% url 'signup' %}">Sign Up</a></li>
+      <li><a href="{% url 'login' %}">Log In</a></li>
     {% endif %}
   </ul>
   <main class="container">
@@ -60,11 +57,10 @@
   </footer>
  
   <script>
-    $(document).ready(function(){
-      $('.sidenav').sidenav();
-      
+    $(document).ready(function() {
+      $('.sidenav').sidenav(); 
     })
   </script>
-</body>
 
+</body>
 </html>

@@ -25,7 +25,9 @@
   <h3>You've not even an ounce of LIT content!</h3>
   <a href="{% url 'stories_create' %}"><button class="btn">Publish</button></a>
 {% endif %}
+
 {% endblock %}
+
 <script>
   const selectEl = document.getElementById('id_genre');
   M.FormSelect.init(selectEl);

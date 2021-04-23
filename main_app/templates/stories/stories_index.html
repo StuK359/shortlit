@@ -4,23 +4,23 @@
   <h1>All Stories</h1>
   <div id="the-test" class="container-index">
     {% for s in stories %}
-    <div class="card brown lighten-5">
-      <div class="card-content">
-        <span class="card-title">
-          <a href="/stories/{{ s.id }}">
-            <h4>{{ s.title }}</h4>
-          </a>
-        </span>
-        <img src="{{ s.cover }}">
-        <div class="book-info">
-          <p>Author: {{ s.author }}</p>
-          <p>Genre: {{ s.get_genre_display }}</p>
-          <p>Publish Date: {{ s.date }}</p>
-          <p>Synopsis: <button id="button{{s.id}}">+</button></p>
-          <p id="synopsis{{s.id}}">{{ s.synopsis }}</p>
-        </div>  
+      <div class="card brown lighten-5">
+        <div class="card-content">
+          <span class="card-title">
+            <a href="/stories/{{ s.id }}">
+              <h4>{{ s.title }}</h4>
+            </a>
+          </span>
+          <img src="{{ s.cover }}">
+          <div class="book-info">
+            <p>Author: {{ s.author }}</p>
+            <p>Genre: {{ s.get_genre_display }}</p>
+            <p>Publish Date: {{ s.date }}</p>
+            <p>Synopsis: <button id="button{{s.id}}">+</button></p>
+            <p id="synopsis{{s.id}}">{{ s.synopsis }}</p>
+          </div>  
+        </div>
       </div>
-    </div>
     {% endfor %}
   </div>
 
