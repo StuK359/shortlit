@@ -163,7 +163,6 @@ def add_favorite(request, story_id):
     return redirect('favorites_index')
 
 
-
 @login_required
 def favorites_index(request):
   favorites = request.user.favorite_set.all()
